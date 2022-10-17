@@ -1,0 +1,141 @@
+
+/* root. Oppretter variabler her til styling. */
+:root {
+/* Fonts. 
+Font Family-Body. */
+--ff-body: font-family: 'Heebo', sans-serif;
+--ff-heading: 'Oswald', sans-serif;
+
+/* Farger. 
+Color-Primary 900 */
+--clr-neutral-900: hsl(0 0% 0%);
+--clr-neutral-100: hsl(0 0 100);
+
+/* Størrelse. 
+Font Size-XL*/
+--fs-xl: clamp(3rem, 1rem + 10vw, 5rem);
+--fs-600: 2rem;
+--fs-550: 1.60rem;
+--fs-500: 1.5rem;
+--fs-400: 1.125rem;
+}
+
+
+
+::before
+/* Lager hele nettsiden om til en boks med border. */
+::after {
+    box-sizing: border-box;
+}
+
+.logo1 {
+    margin-left: 20px;
+}
+
+/* Stylingen under(margin: 0; padding: 0; Gjelder for alle elementene her h2,h3,h4 osv. */
+
+body,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-bottom: -1.5ch;
+}
+
+
+h2 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-xl);
+    text-align: center;
+    margin: auto;
+}
+
+h3 {
+    font-family: var(--ff-heading);
+    text-transform: uppercase;
+    font-size: var(--fs-xl);
+    color: black;
+    opacity:0.3;
+    text-align: center;
+}
+
+/* h3:hover {
+    opacity: 1;
+  } */
+
+
+h4 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-xl);
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 5ch;
+}
+
+/* Plassering av artikkel. Article class ="flow" */
+.flow > * + * {
+    margin-top: var(--flow-spacer, 1em);
+}
+
+.ledeTekst {
+    font-size: var(--fs-550);
+    max-width: 35ch;
+    
+}
+
+/* .ledeTekst::first-line {
+    text-transform: uppercase;
+} */
+
+body {
+    font-family: var(--ff-body);
+    font-size: var(--fs-400);
+    line-height: 1.5;
+}
+
+article {
+    /* --flow-spacer: 3em; */
+    /* color: blue; */
+    display: grid;
+    text-align: left;
+}
+
+.article-body {
+    /* --flow-spacer: 3em; */
+    columns: 1 5ch;
+    /* column-rule: 2px solid red; */
+    gap: 3rem;
+    max-width: 45ch;
+    padding: 1rem;
+}
+
+/* article > *:not(img) {
+    grid-column: 2 / -1;
+    padding: 0 3rem;
+} */
+
+img {
+    display: block;
+    max-width: 100%;
+    grid-column: 2 / -1;
+    align-items:baseline;
+}
+
+/* Plassering. */
+@media (min-width: 50em) {
+    article {
+        grid-template-columns: min(35%, 35rem) 1fr;
+    }
+}
+
+/* Scalerer artikkel teksten med bildet. */
+article > img {
+    grid-row: 1 / 4;
+    height: 100%;
+    object-fit: cover;
+}
